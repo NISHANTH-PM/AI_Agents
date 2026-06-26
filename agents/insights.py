@@ -11,9 +11,7 @@ def generate_insights(topic, collection_name="members"):
     contexts = retrieve(topic, collection_name=collection_name, top_k=10)
     context_text = "\n".join(contexts)
 
-    response = client_ai.models.generate_content(
-        model="models/gemini-2.5-flash",
-        contents=f"""You are a community analytics expert.
+    response = generate_content(f"""You are a community analytics expert.
 Analyze the following community data and generate insights, patterns and trends.
 
 Data:
@@ -26,6 +24,35 @@ Provide:
 2. Top performers
 3. Trends
 4. Recommendations for the community
-"""
-    )
-    return response.text
+""")
+    
+    return response
+
+GENERATION_MODELS = [
+    "models/gemini-3.5-flash",
+    "models/gemini-3.1-flash-lite",
+    "models/gemini-3-flash-preview",
+    "models/gemini-2.5-flash",
+    "models/gemini-2.5-flash-lite"
+]
+
+current_gen_model_index = 0
+
+def generate_content(prompt):
+    global current_gen_model_index
+    
+    while current_gen_model_index < len(GENERATION_MODELS):
+        model = GENERATION_MODELS[current_gen_model_index]
+        try:
+            response= client_ai.models.generate_content(
+                model=model,
+                contents=prompt
+            )
+            return response.text
+        except Exception as e:
+            if "429" in str(e) or "503" in str(e):
+                current_gen_model_index += 1
+            else:
+                raise e
+    
+    return "All models exhausted. Try again later."

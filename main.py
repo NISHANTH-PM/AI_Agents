@@ -2,14 +2,19 @@ import os
 from agents.orchestrator import orchestrate
 from scheduler import start_scheduler, get_cached_insight
 from dotenv import load_dotenv
+import threading
 
 load_dotenv()
 
 def main():
-    # Start background scheduler
-    start_scheduler()
+     # Start scheduler silently in background
+    threading.Thread(target=start_scheduler, daemon=True).start()
     
     print("\n=== Community Intelligence Agent ===\n")
+
+    import time
+    time.sleep(0.5)
+    threading.Thread(target=start_scheduler, daemon=True).start()
     
     while True:
         print("\nOptions:")

@@ -63,7 +63,6 @@ def get_embedding(text):
             return result.embeddings[0].values
         except Exception as e:
             if "429" in str(e):
-                print(f"{model} rate limited. Switching permanently to next model...")
                 current_model_index += 1
             elif "503" in str(e):
                 print(f"Server unavailable. Waiting 30s...")
@@ -79,7 +78,6 @@ def ingest_csv(filepath, collection_name=None):
     if collection_name is None:
         collection_name = CSV_COLLECTION_MAP.get(filename)
     if collection_name is None:
-        print(f"No collection mapped for {filename}, skipping.")
         return
 
     df = pd.read_csv(filepath)
@@ -96,7 +94,6 @@ def ingest_csv(filepath, collection_name=None):
             payload={"text": text, "source": filename, **row.to_dict()}
         ))
     client.upsert(collection_name=collection_name, points=points)
-    print(f"Ingested {len(points)} rows into '{collection_name}' from {filename}")
     
 def ingest_all(data_dir="data"):
     for filename in os.listdir(data_dir):

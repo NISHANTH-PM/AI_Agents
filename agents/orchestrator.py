@@ -12,9 +12,8 @@ client_ai = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 DOMAINS = ["members", "events", "communications", "finance", "projects"]
 
 def classify_domain(query):
-    response = client_ai.models.generate_content(
-        model="models/gemini-2.5-flash",
-        contents=f"""Classify this query into exactly one of these domains:
+    response = generate_content(
+        f"""Classify this query into exactly one of these domains:
 members, events, communications, finance, projects
 
 Rules:
@@ -28,12 +27,10 @@ Query: {query}
 
 Reply with only one word from the list above:"""
     )
-    return response.text.strip().lower()
+    return response.strip().lower()
 
 def classify_intent(query):
-    response = client_ai.models.generate_content(
-        model="models/gemini-2.5-flash",
-        contents=f"""Classify this query into exactly one word: either 'retrieval' or 'insights'
+    response = generate_content(f"""Classify this query into exactly one word: either 'retrieval' or 'insights'
 
 Rules:
 - retrieval = specific question needing a direct answer
@@ -41,14 +38,14 @@ Rules:
 
 Query: {query}
 
-Reply with only one word:"""
-    )
-    return response.text.strip().lower()
+Reply with only one word:""")
+    
+    return response.strip().lower()
 
 def orchestrate(query):
     # Recall memory
     memory = recall_memory(query)
-    print(f"Memory recalled: {memory}")
+    
 
     # Classify domain and intent
     domain = classify_domain(query)
@@ -58,7 +55,7 @@ def orchestrate(query):
     if domain not in DOMAINS:
         domain = "members"  # default fallback
     
-    print(f"Domain: {domain} | Intent: {intent}")
+    
 
     if "insights" in intent:
         response = generate_insights(query, collection_name=domain)
@@ -67,3 +64,32 @@ def orchestrate(query):
 
     save_to_memory(query, response)
     return response
+
+GENERATION_MODELS = [
+    "models/gemini-3.5-flash",
+    "models/gemini-3.1-flash-lite",
+    "models/gemini-3-flash-preview",
+    "models/gemini-2.5-flash",
+    "models/gemini-2.5-flash-lite"
+]
+
+current_gen_model_index = 0
+
+def generate_content(prompt):
+    global current_gen_model_index
+    
+    while current_gen_model_index < len(GENERATION_MODELS):
+        model = GENERATION_MODELS[current_gen_model_index]
+        try:
+            response = client_ai.models.generate_content(
+                model=model,
+                contents=prompt
+            )
+            return response.text
+        except Exception as e:
+            if "429" in str(e) or "503" in str(e):
+                current_gen_model_index += 1
+            else:
+                raise e
+    
+    return "All models exhausted. Try again later."

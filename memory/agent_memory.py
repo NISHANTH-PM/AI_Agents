@@ -22,12 +22,31 @@ def create_memory_collection():
         vectors_config=VectorParams(size=3072, distance=Distance.COSINE)
     )
 
+EMBEDDING_MODELS = [
+    "models/gemini-embedding-001",
+    "models/gemini-embedding-2-preview"
+]
+
+current_model_index = 0
+
 def get_embedding(text):
-    result = client_ai.models.embed_content(
-        model="models/gemini-embedding-001",
-        contents=text
-    )
-    return result.embeddings[0].values
+    global current_model_index
+    
+    while current_model_index < len(EMBEDDING_MODELS):
+        model = EMBEDDING_MODELS[current_model_index]
+        try:
+            result = client_ai.models.embed_content(
+                model=model,
+                contents=text
+            )
+            return result.embeddings[0].values
+        except Exception as e:
+            if "429" in str(e):
+                current_model_index += 1
+            else:
+                raise e
+    
+    return None
 
 def save_to_memory(query, response):
     text = f"User asked: {query} | Agent answered: {response}"

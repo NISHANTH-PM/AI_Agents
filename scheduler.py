@@ -5,6 +5,13 @@ import threading
 import datetime
 from agents.insights import generate_insights
 from dotenv import load_dotenv
+import logging
+
+logging.basicConfig(
+    filename='logs/scheduler.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(message)s'
+)
 
 load_dotenv()
 
@@ -32,12 +39,11 @@ def save_cache(cache):
         json.dump(cache, f, indent=2)
 
 def refresh_insights():
-    print(f"[{datetime.datetime.now()}] Refreshing insights cache...")
+    time_of_cache_refresh = datetime.datetime.now()
     cache = load_cache()
     
     for domain in DOMAINS:
         try:
-            print(f"Generating insights for: {domain}")
             topic = DOMAIN_TOPICS[domain]
             insight = generate_insights(topic, collection_name=domain)
             cache[domain] = {
@@ -46,10 +52,11 @@ def refresh_insights():
             }
             time.sleep(2)  # avoid rate limiting between domains
         except Exception as e:
-            print(f"Failed for {domain}: {e}")
+            logging.info("your message")
+            logging.error(f"Failed for {domain}: {e}")
     
     save_cache(cache)
-    print("Cache updated.")
+    
 
 def get_cached_insight(domain):
     cache = load_cache()
@@ -61,9 +68,8 @@ def start_scheduler():
     def run():
         while True:
             refresh_insights()
-            print(f"Next refresh in {INTERVAL_HOURS} hours.")
             time.sleep(INTERVAL_HOURS * 3600)
     
     thread = threading.Thread(target=run, daemon=True)
     thread.start()
-    print("Scheduler started.")
+    
