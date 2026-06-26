@@ -42,22 +42,36 @@ def create_all_collections():
 
 import time
 
-def get_embedding(text, retries=5):
-    for attempt in range(retries):
+EMBEDDING_MODELS = [
+    "models/gemini-embedding-001",
+    "models/gemini-embedding-2-preview"
+]
+
+current_model_index = 0
+
+def get_embedding(text):
+    global current_model_index
+    
+    while current_model_index < len(EMBEDDING_MODELS):
+        model = EMBEDDING_MODELS[current_model_index]
         try:
             result = client_ai.models.embed_content(
-                model="models/gemini-embedding-001",
+                model=model,
                 contents=text
             )
             time.sleep(0.7)
             return result.embeddings[0].values
         except Exception as e:
-            if "429" in str(e) or "503" in str(e):
-                wait = 60 * (attempt + 1)
-                print(f"Rate limited. Waiting {wait}s... (attempt {attempt+1})")
-                time.sleep(wait)
+            if "429" in str(e):
+                print(f"{model} rate limited. Switching permanently to next model...")
+                current_model_index += 1
+            elif "503" in str(e):
+                print(f"Server unavailable. Waiting 30s...")
+                time.sleep(30)
             else:
                 raise e
+    
+    print("All models exhausted.")
     return None
 
 def ingest_csv(filepath, collection_name=None):
