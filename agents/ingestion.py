@@ -15,63 +15,76 @@ client = QdrantClient(
     api_key=os.getenv("QDRANT_API_KEY")
 )
 
-COLLECTION_NAME = "community_data"
+COLLECTIONS = {
+    "members": 3072,
+    "events": 3072,
+    "communications": 3072,
+    "finance": 3072,
+    "projects": 3072
+}
 
-def create_collection():
-    client.recreate_collection(
-        collection_name=COLLECTION_NAME,
-        vectors_config=VectorParams(size=3072, distance=Distance.COSINE)
-    )
-    print("Collection created.")
+# Map CSV files to collections
+CSV_COLLECTION_MAP = {
+    "members.csv": "members",
+    "events.csv": "events",
+    "communications.csv": "communications",
+    "finance.csv": "finance",
+    "projects.csv": "projects"
+}
 
-def get_embedding(text):
-    result = client_ai.models.embed_content(
-        model="models/gemini-embedding-001",
-        contents=text
-    )
-    return result.embeddings[0].values
+def create_all_collections():
+    for name, size in COLLECTIONS.items():
+        client.recreate_collection(
+            collection_name=name,
+            vectors_config=VectorParams(size=size, distance=Distance.COSINE)
+        )
+        print(f"Collection created: {name}")
 
-def ingest_csv(filepath):
+import time
+
+def get_embedding(text, retries=5):
+    for attempt in range(retries):
+        try:
+            result = client_ai.models.embed_content(
+                model="models/gemini-embedding-001",
+                contents=text
+            )
+            time.sleep(0.7)
+            return result.embeddings[0].values
+        except Exception as e:
+            if "429" in str(e) or "503" in str(e):
+                wait = 60 * (attempt + 1)
+                print(f"Rate limited. Waiting {wait}s... (attempt {attempt+1})")
+                time.sleep(wait)
+            else:
+                raise e
+    return None
+
+def ingest_csv(filepath, collection_name=None):
+    filename = os.path.basename(filepath)
+    if collection_name is None:
+        collection_name = CSV_COLLECTION_MAP.get(filename)
+    if collection_name is None:
+        print(f"No collection mapped for {filename}, skipping.")
+        return
+
     df = pd.read_csv(filepath)
     points = []
     for _, row in df.iterrows():
         text = " ".join([str(v) for v in row.values])
         embedding = get_embedding(text)
+        if embedding is None:
+            print(f"Skipping row due to failed embedding: {text[:50]}")
+            continue
         points.append(PointStruct(
             id=str(uuid.uuid4()),
             vector=embedding,
-            payload={"text": text, "source": filepath}
+            payload={"text": text, "source": filename, **row.to_dict()}
         ))
-    client.upsert(collection_name=COLLECTION_NAME, points=points)
-    print(f"Ingested {len(points)} rows from {filepath}")
-
-def ingest_pdf(filepath):
-    reader = pypdf.PdfReader(filepath)
-    points = []
-    for i, page in enumerate(reader.pages):
-        text = page.extract_text()
-        if text.strip():
-            embedding = get_embedding(text)
-            points.append(PointStruct(
-                id=str(uuid.uuid4()),
-                vector=embedding,
-                payload={"text": text, "source": filepath, "page": i}
-            ))
-    client.upsert(collection_name=COLLECTION_NAME, points=points)
-    print(f"Ingested {len(points)} pages from {filepath}")
-
-def ingest_text(filepath):
-    with open(filepath, 'r') as f:
-        text = f.read()
-    chunks = [text[i:i+500] for i in range(0, len(text), 500)]
-    points = []
-    for chunk in chunks:
-        if chunk.strip():
-            embedding = get_embedding(chunk)
-            points.append(PointStruct(
-                id=str(uuid.uuid4()),
-                vector=embedding,
-                payload={"text": chunk, "source": filepath}
-            ))
-    client.upsert(collection_name=COLLECTION_NAME, points=points)
-    print(f"Ingested {len(points)} chunks from {filepath}")
+    client.upsert(collection_name=collection_name, points=points)
+    print(f"Ingested {len(points)} rows into '{collection_name}' from {filename}")
+    
+def ingest_all(data_dir="data"):
+    for filename in os.listdir(data_dir):
+        if filename.endswith(".csv") and filename in CSV_COLLECTION_MAP:
+            ingest_csv(os.path.join(data_dir, filename))

@@ -11,8 +11,6 @@ client = QdrantClient(
     api_key=os.getenv("QDRANT_API_KEY")
 )
 
-COLLECTION_NAME = "community_data"
-
 def get_embedding(text):
     result = client_ai.models.embed_content(
         model="models/gemini-embedding-001",
@@ -20,19 +18,19 @@ def get_embedding(text):
     )
     return result.embeddings[0].values
 
-def retrieve(query, top_k=5):
+def retrieve(query, collection_name="members", top_k=5):
     query_vector = get_embedding(query)
     results = client.query_points(
-        collection_name=COLLECTION_NAME,
+        collection_name=collection_name,
         query=query_vector,
         limit=top_k
     )
     return [r.payload["text"] for r in results.points]
 
-def answer_query(query):
-    contexts = retrieve(query)
+def answer_query(query, collection_name="members"):
+    contexts = retrieve(query, collection_name=collection_name)
     context_text = "\n".join(contexts)
-    
+
     response = client_ai.models.generate_content(
         model="models/gemini-2.5-flash",
         contents=f"""You are a community intelligence assistant.

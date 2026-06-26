@@ -7,8 +7,8 @@ load_dotenv()
 
 client_ai = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
-def generate_insights(topic):
-    contexts = retrieve(topic, top_k=10)
+def generate_insights(topic, collection_name="members"):
+    contexts = retrieve(topic, collection_name=collection_name, top_k=10)
     context_text = "\n".join(contexts)
 
     response = client_ai.models.generate_content(
