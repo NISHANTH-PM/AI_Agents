@@ -57,6 +57,7 @@ def refresh_insights():
 
 def get_cached_insight(domain):
     cache = load_cache()
+    print(f"Cache keys: {list(cache.keys())}")
     if domain in cache:
         return cache[domain]["insight"]
     return None
