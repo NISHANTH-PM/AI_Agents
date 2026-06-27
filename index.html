@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Intelligence Agent</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background: #0f172a; color: #e2e8f0; font-family: 'Inter', sans-serif; }
+        .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; }
+        .chat-bubble-user { background: #3b82f6; border-radius: 12px 12px 0 12px; }
+        .chat-bubble-agent { background: #1e293b; border: 1px solid #334155; border-radius: 12px 12px 12px 0; }
+        #chat-messages { scrollbar-width: thin; scrollbar-color: #334155 transparent; }
+        .domain-tab.active { background: #3b82f6; color: white; }
+        .domain-tab { cursor: pointer; transition: all 0.2s; }
+        .typing { animation: pulse 1s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        #insight-content h1, #insight-content h2, #insight-content h3 { 
+            color: #f1f5f9; font-weight: 600; margin: 12px 0 6px; 
+        }
+        #insight-content h3 { font-size: 0.95rem; color: #94a3b8; }
+        #insight-content ul { padding-left: 1.2rem; }
+        #insight-content li { margin: 4px 0; color: #cbd5e1; }
+        #insight-content strong { color: #e2e8f0; }
+        .chat-bubble-agent h1, .chat-bubble-agent h2, .chat-bubble-agent h3 {
+            color: #f1f5f9; font-weight: 600; margin: 8px 0 4px;
+        }
+        .chat-bubble-agent ul { padding-left: 1.2rem; }
+        .chat-bubble-agent li { margin: 3px 0; }
+        .chat-bubble-agent strong { color: #ffffff; }
+    </style>
+</head>
+<body class="min-h-screen p-6">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-8">
+        <div>
+            <h1 class="text-3xl font-bold text-white">Community Intelligence</h1>
+            <p class="text-slate-400 mt-1">AI-powered insights for your clubs & communities</p>
+        </div>
+        <div class="flex items-center gap-2">
+            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <span class="text-green-400 text-sm">Agent Online</span>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-5 gap-4 mb-6">
+        <div class="card p-4">
+            <p class="text-slate-400 text-xs uppercase tracking-wide">Members</p>
+            <p class="text-2xl font-bold text-white mt-1">50</p>
+            <p class="text-green-400 text-xs mt-1">↑ Active</p>
+        </div>
+        <div class="card p-4">
+            <p class="text-slate-400 text-xs uppercase tracking-wide">Events</p>
+            <p class="text-2xl font-bold text-white mt-1">50</p>
+            <p class="text-blue-400 text-xs mt-1">↑ This month</p>
+        </div>
+        <div class="card p-4">
+            <p class="text-slate-400 text-xs uppercase tracking-wide">Communications</p>
+            <p class="text-2xl font-bold text-white mt-1">50</p>
+            <p class="text-purple-400 text-xs mt-1">↑ Sent</p>
+        </div>
+        <div class="card p-4">
+            <p class="text-slate-400 text-xs uppercase tracking-wide">Finance</p>
+            <p class="text-2xl font-bold text-white mt-1">50</p>
+            <p class="text-yellow-400 text-xs mt-1">↑ Transactions</p>
+        </div>
+        <div class="card p-4">
+            <p class="text-slate-400 text-xs uppercase tracking-wide">Projects</p>
+            <p class="text-2xl font-bold text-white mt-1">24</p>
+            <p class="text-red-400 text-xs mt-1">↑ Active</p>
+        </div>
+    </div>
+
+    <!-- AI Insights Full Width -->
+    <div class="card p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-semibold text-white">AI Insights</h2>
+            <button onclick="refreshInsights()" class="text-xs bg-slate-700 hover:bg-slate-600 px-3 py-1 rounded-full transition">
+                ↻ Refresh
+            </button>
+        </div>
+
+        <!-- Domain Tabs -->
+        <div class="flex gap-2 mb-4 flex-wrap">
+            <button class="domain-tab active text-xs px-3 py-1 rounded-full bg-slate-700" onclick="loadInsight('members', this)">Members</button>
+            <button class="domain-tab text-xs px-3 py-1 rounded-full bg-slate-700" onclick="loadInsight('events', this)">Events</button>
+            <button class="domain-tab text-xs px-3 py-1 rounded-full bg-slate-700" onclick="loadInsight('communications', this)">Communications</button>
+            <button class="domain-tab text-xs px-3 py-1 rounded-full bg-slate-700" onclick="loadInsight('finance', this)">Finance</button>
+            <button class="domain-tab text-xs px-3 py-1 rounded-full bg-slate-700" onclick="loadInsight('projects', this)">Projects</button>
+        </div>
+
+        <!-- Two column layout: insight text + chart -->
+        <div class="grid grid-cols-3 gap-6">
+            <div id="insight-content" class="col-span-2 text-slate-300 text-sm leading-relaxed overflow-y-auto max-h-80">
+                <p class="typing text-slate-400">Loading insights...</p>
+            </div>
+            <div class="col-span-1">
+                <canvas id="insightChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Full Width -->
+    <div class="card p-6">
+        <h2 class="text-lg font-semibold text-white mb-4">Ask the Agent</h2>
+
+        <div id="chat-messages" class="overflow-y-auto max-h-64 space-y-3 mb-4">
+            <div class="chat-bubble-agent p-3 text-sm text-slate-300 inline-block max-w-lg">
+                Hi! Ask me anything about your community data.
+            </div>
+        </div>
+
+        <div class="flex gap-2">
+            <input
+                id="chat-input"
+                type="text"
+                placeholder="Ask a question about members, events, finance, projects or communications..."
+                class="flex-1 bg-slate-700 text-white text-sm rounded-lg px-4 py-3 outline-none border border-slate-600 focus:border-blue-500"
+                onkeydown="if(event.key==='Enter') sendMessage()"
+            />
+            <button
+                onclick="sendMessage()"
+                class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg text-sm transition font-medium"
+            >
+                Send
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const API = 'http://localhost:8000';
+        let currentChart = null;
+
+        window.onload = () => loadInsight('members', document.querySelector('.domain-tab'));
+
+        let currentCard = 0;
+        let cards = [];
+
+        async function loadInsight(domain, btn) {
+            document.querySelectorAll('.domain-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('insight-content').innerHTML = '<p class="typing text-slate-400">Loading...</p>';
+
+            try {
+                const res = await fetch(`${API}/insights/${domain}`);
+                const data = await res.json();
+
+                const sections = data.insight.split(/\n(?=\d+\.|###)/).filter(s => s.trim());
+                cards = sections.map(section => {
+                    const lines = section.trim().split('\n');
+                    const title = lines[0].replace(/^#+\s*/, '').replace(/^\d+\.\s*/, '').trim();
+                   const body = lines.slice(1).join('\n').trim();
+                    return { title, body };
+                });
+
+                currentCard = 0;
+                renderCard();
+                renderChart(domain);
+            } catch {
+                document.getElementById('insight-content').innerHTML = '<p class="text-red-400">Failed to load insights.</p>';
+            }
+        }
+
+        function renderCard() {
+            if (cards.length === 0) return;
+            const card = cards[currentCard];
+            document.getElementById('insight-content').innerHTML = `
+                <div class="flex items-center justify-between mb-3">
+                    <button onclick="prevCard()" class="bg-slate-700 hover:bg-slate-600 text-white px-3 py-1 rounded-lg text-sm transition ${currentCard === 0 ? 'opacity-30 cursor-not-allowed' : ''}">← Prev</button>
+                    <span class="text-slate-400 text-xs">${currentCard + 1} / ${cards.length}</span>
+                    <button onclick="nextCard()" class="bg-slate-700 hover:bg-slate-600 text-white px-3 py-1 rounded-lg text-sm transition ${currentCard === cards.length - 1 ? 'opacity-30 cursor-not-allowed' : ''}">Next →</button>
+                </div>
+                <div class="card p-5 border border-slate-600">
+                    <h3 class="text-blue-400 font-semibold text-sm mb-3">${card.title}</h3>
+                    <div class="text-slate-300 text-sm leading-relaxed">${marked.parse(card.body)}</div>
+                </div>
+            `;
+        }
+
+function prevCard() {
+    if (currentCard > 0) { currentCard--; renderCard(); }
+}
+
+function nextCard() {
+    if (currentCard < cards.length - 1) { currentCard++; renderCard(); }
+}
+        function renderChart(domain) {
+            const ctx = document.getElementById('insightChart').getContext('2d');
+            if (currentChart) currentChart.destroy();
+
+            const chartData = {
+                members: {
+                    label: 'Member Roles',
+                    labels: ['General', 'Active', 'Core'],
+                    data: [25, 15, 10],
+                    colors: ['#3b82f6', '#22c55e', '#f59e0b']
+                },
+                events: {
+                    label: 'Event Types',
+                    labels: ['Workshop', 'Hackathon', 'Talk', 'Exhibition'],
+                    data: [20, 10, 12, 8],
+                    colors: ['#3b82f6', '#a855f7', '#22c55e', '#f59e0b']
+                },
+                communications: {
+                    label: 'Channels',
+                    labels: ['Email', 'WhatsApp', 'Notice Board'],
+                    data: [30, 12, 8],
+                    colors: ['#3b82f6', '#22c55e', '#f59e0b']
+                },
+                finance: {
+                    label: 'Expense Categories',
+                    labels: ['Catering', 'Printing', 'Prizes', 'Venue'],
+                    data: [18, 12, 10, 10],
+                    colors: ['#3b82f6', '#a855f7', '#22c55e', '#f59e0b']
+                },
+                projects: {
+                    label: 'Project Status',
+                    labels: ['Completed', 'In Progress', 'Planning'],
+                    data: [8, 10, 6],
+                    colors: ['#22c55e', '#3b82f6', '#f59e0b']
+                }
+            };
+
+            const d = chartData[domain];
+            currentChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: d.labels,
+                    datasets: [{
+                        label: d.label,
+                        data: d.data,
+                        backgroundColor: d.colors,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            labels: { color: '#94a3b8', font: { size: 11 } }
+                        }
+                    }
+                }
+            });
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const question = input.value.trim();
+            if (!question) return;
+
+            const messages = document.getElementById('chat-messages');
+
+            messages.innerHTML += `
+                <div class="flex justify-end">
+                    <div class="chat-bubble-user p-3 text-sm text-white inline-block max-w-lg">${question}</div>
+                </div>`;
+
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+
+            const typingId = 'typing-' + Date.now();
+            messages.innerHTML += `<div id="${typingId}" class="chat-bubble-agent p-3 text-sm text-slate-400 inline-block typing">Thinking...</div>`;
+            messages.scrollTop = messages.scrollHeight;
+
+            try {
+                const res = await fetch(`${API}/ask`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({question})
+                });
+                const data = await res.json();
+                document.getElementById(typingId).remove();
+                messages.innerHTML += `
+                    <div class="chat-bubble-agent p-3 text-sm text-slate-300 inline-block max-w-2xl">${marked.parse(data.answer)}</div>`;
+            } catch {
+                document.getElementById(typingId).remove();
+                messages.innerHTML += `
+                    <div class="chat-bubble-agent p-3 text-sm text-red-400 inline-block">Failed to get response.</div>`;
+            }
+
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        async function refreshInsights() {
+            await fetch(`${API}/refresh`, {method: 'POST'});
+            loadInsight('members', document.querySelector('.domain-tab.active'));
+        }
+    </script>
+</body>
+</html>

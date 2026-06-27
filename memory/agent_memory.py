@@ -11,7 +11,8 @@ load_dotenv()
 client_ai = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 client = QdrantClient(
     url=os.getenv("QDRANT_URL"),
-    api_key=os.getenv("QDRANT_API_KEY")
+    api_key=os.getenv("QDRANT_API_KEY"),
+    timeout=30
 )
 
 MEMORY_COLLECTION = "agent_memory"
@@ -45,7 +46,6 @@ def get_embedding(text):
                 current_model_index += 1
             else:
                 raise e
-    
     return None
 
 def save_to_memory(query, response):

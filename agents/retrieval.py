@@ -8,7 +8,8 @@ load_dotenv()
 client_ai = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 client = QdrantClient(
     url=os.getenv("QDRANT_URL"),
-    api_key=os.getenv("QDRANT_API_KEY")
+    api_key=os.getenv("QDRANT_API_KEY"),
+    timeout=30
 )
 
 EMBEDDING_MODELS = [
@@ -63,7 +64,6 @@ def get_embedding(text):
                 current_model_index += 1
             else:
                 raise e
-    
     return None
 
 def retrieve(query, collection_name="members", top_k=5):
