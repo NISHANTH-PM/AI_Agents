@@ -44,7 +44,7 @@ import time
 
 EMBEDDING_MODELS = [
     "models/gemini-embedding-001",
-    "models/gemini-embedding-2-preview"
+    "models/gemini-embedding-002"
 ]
 
 current_model_index = 0
