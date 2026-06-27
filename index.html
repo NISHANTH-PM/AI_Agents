@@ -75,6 +75,9 @@
         </div>
     </div>
 
+    <!-- Anomaly Alerts -->
+    <div id="alerts-panel" class="mb-6"></div>
+
     <!-- AI Insights Full Width -->
     <div class="card p-6 mb-6">
         <div class="flex items-center justify-between mb-4">
@@ -114,6 +117,8 @@
             </div>
         </div>
 
+        <div id="suggestions" class="mb-3"></div>
+
         <div class="flex gap-2">
             <input
                 id="chat-input"
@@ -122,6 +127,10 @@
                 class="flex-1 bg-slate-700 text-white text-sm rounded-lg px-4 py-3 outline-none border border-slate-600 focus:border-blue-500"
                 onkeydown="if(event.key==='Enter') sendMessage()"
             />
+            <button id="voice-btn" onclick="startVoice()" 
+            class="bg-slate-700 hover:bg-slate-600 text-white px-4 py-3 rounded-lg text-sm transition">
+            🎤
+            </button>
             <button
                 onclick="sendMessage()"
                 class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg text-sm transition font-medium"
@@ -135,7 +144,11 @@
         const API = 'http://localhost:8000';
         let currentChart = null;
 
-        window.onload = () => loadInsight('members', document.querySelector('.domain-tab'));
+        window.onload = () => {
+            loadInsight('members', document.querySelector('.domain-tab'));
+            loadAlerts();
+            loadMCPStats();
+        }
 
         let currentCard = 0;
         let cards = [];
@@ -181,13 +194,13 @@
             `;
         }
 
-function prevCard() {
-    if (currentCard > 0) { currentCard--; renderCard(); }
-}
+        function prevCard() {
+            if (currentCard > 0) { currentCard--; renderCard(); }
+        }
 
-function nextCard() {
-    if (currentCard < cards.length - 1) { currentCard++; renderCard(); }
-}
+        function nextCard() {
+         if (currentCard < cards.length - 1) { currentCard++; renderCard(); }
+        }
         function renderChart(domain) {
             const ctx = document.getElementById('insightChart').getContext('2d');
             if (currentChart) currentChart.destroy();
@@ -283,12 +296,144 @@ function nextCard() {
             }
 
             messages.scrollTop = messages.scrollHeight;
+            loadSuggestions('community');
         }
 
         async function refreshInsights() {
             await fetch(`${API}/refresh`, {method: 'POST'});
             loadInsight('members', document.querySelector('.domain-tab.active'));
         }
+
+        async function renderChart(domain) {
+            const ctx = document.getElementById('insightChart').getContext('2d');
+            if (currentChart) currentChart.destroy();
+
+            try {
+                const res = await fetch(`${API}/stats/${domain}`);
+                const d = await res.json();
+        
+                const colors = ['#3b82f6','#22c55e','#f59e0b','#a855f7','#ef4444','#06b6d4'];
+        
+                currentChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: d.labels,
+                        datasets: [{
+                            data: d.data,
+                            backgroundColor: colors.slice(0, d.labels.length),
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                labels: { color: '#94a3b8', font: { size: 11 } }
+                            }
+                        }
+                    }
+                });
+            } catch {
+                console.log('Chart failed');
+            }
+        }
+
+        async function loadAlerts() {
+            try {
+                const res = await fetch(`${API}/anomalies`);
+                const data = await res.json();
+        
+                if (data.alerts.length === 0) {
+                    document.getElementById('alerts-panel').innerHTML = '';
+                    return;
+                }
+
+                let html = '<div class="flex flex-wrap gap-3">';
+                data.alerts.forEach(alert => {
+                    const color = alert.type === 'danger' ? 'red' : 'yellow';
+                    html += `
+                        <div class="bg-${color}-900 border border-${color}-700 text-${color}-300 px-4 py-2 rounded-lg text-xs flex items-center gap-2">
+                            <span>${alert.type === 'danger' ? '🔴' : '⚠️'}</span>
+                            <span><strong>${alert.domain.toUpperCase()}</strong>: ${alert.message}</span>
+                        </div>`;
+                });
+                html += '</div>';
+                document.getElementById('alerts-panel').innerHTML = html;
+            } catch {
+                console.log('Alerts failed');
+            }
+        }
+
+        async function loadSuggestions(context) {
+            try {
+                const res = await fetch(`${API}/ask`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({question: `Based on the ${context} domain data, suggest 3 short follow-up questions a community manager would ask. Reply ONLY with a JSON array of 3 strings, no explanation.`})
+                });
+                const data = await res.json();
+                console.log('Suggestions raw:', data.answer);
+                const clean = data.answer.match(/\[[\s\S]*\]/);
+                if (!clean) throw new Error('No JSON found');
+                const questions = JSON.parse(clean[0]);
+            
+                let html = '<div class="flex flex-wrap gap-2 mt-3">';
+                questions.forEach(q => {
+                    html += `<button onclick="askSuggestion('${q.replace(/'/g, '')}')" 
+                        class="text-xs bg-slate-700 hover:bg-blue-700 text-slate-300 px-3 py-1 rounded-full transition border border-slate-600">${q}</button>`;
+                });
+                html += '</div>';
+            
+                document.getElementById('suggestions').innerHTML = html;
+            } catch(e) {
+                console.log('Suggestions error:', e);
+                document.getElementById('suggestions').innerHTML = '';
+            }
+            
+        }
+
+        function askSuggestion(question) {
+            document.getElementById('chat-input').value = question;
+            sendMessage();
+        }
+
+        function startVoice() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.start();
+            document.getElementById('voice-btn').textContent = '🔴 Listening...';
+    
+            recognition.onresult = (event) => {
+                document.getElementById('chat-input').value = event.results[0][0].transcript;
+                document.getElementById('voice-btn').textContent = '🎤';
+                sendMessage();
+            };
+    
+            recognition.onerror = () => {
+                document.getElementById('voice-btn').textContent = '🎤';
+            };
+    
+            recognition.onend = () => {
+                document.getElementById('voice-btn').textContent = '🎤';
+            };
+        }
+
+        async function loadMCPStats() {
+            try {
+                const tools = ['get_member_count', 'get_event_stats', 'get_finance_summary', 'get_project_status', 'get_communication_stats'];
+                const stats = await Promise.all(tools.map(t => 
+                    fetch(`${API}/mcp/call/${t}`).then(r => r.json())
+                ));
+            
+                // Update stat cards with real data
+                document.querySelectorAll('#stats-cards .card')[0].querySelector('p.text-2xl').textContent = stats[0].count;
+                document.querySelectorAll('#stats-cards .card')[1].querySelector('p.text-2xl').textContent = stats[1].total_events;
+                document.querySelectorAll('#stats-cards .card')[2].querySelector('p.text-2xl').textContent = stats[2].total_transactions;
+                document.querySelectorAll('#stats-cards .card')[3].querySelector('p.text-2xl').textContent = '$' + stats[2].total_amount;
+                document.querySelectorAll('#stats-cards .card')[4].querySelector('p.text-2xl').textContent = stats[3].total_projects;
+            } catch(err) {
+                console.log('MCP stats error:', err);
+            }
+        }       
     </script>
 </body>
 </html>

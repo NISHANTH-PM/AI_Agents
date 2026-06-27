@@ -8,10 +8,93 @@ from pydantic import BaseModel
 from agents.orchestrator import orchestrate
 from scheduler import get_cached_insight, refresh_insights
 from dotenv import load_dotenv
+import pandas as pd
+from tools.mcp_tools import call_tool, list_tools
 
 load_dotenv()
 
 app = FastAPI()
+
+@app.get("/mcp/tools")
+def get_tools():
+    return list_tools()
+
+@app.get("/mcp/call/{tool_name}")
+def execute_tool(tool_name: str):
+    return call_tool(tool_name)
+
+
+@app.get("/anomalies")
+def get_anomalies():
+    alerts = []
+    try:
+        # Events: low attendance
+        df = pd.read_csv("data/events.csv")
+        low = df[df['attendance_rate'] < 0.5]
+        for _, row in low.iterrows():
+            alerts.append({
+                "type": "warning",
+                "domain": "events",
+                "message": f"Low attendance: {row['event_name']} ({round(row['attendance_rate']*100)}%)"
+            })
+
+        # Finance: overspent
+        df = pd.read_csv("data/finance.csv")
+        if 'budget_allocated' in df.columns and 'budget_spent' in df.columns:
+            over = df[df['budget_spent'] > df['budget_allocated']]
+            for _, row in over.iterrows():
+                alerts.append({
+                    "type": "danger",
+                    "domain": "finance",
+                    "message": f"Budget overrun: {row.get('category', 'Unknown')} (${row['budget_spent']})"
+                })
+
+        # Members: low attendance
+        df = pd.read_csv("data/members.csv")
+        low = df[df['attendance_pct'] < 50]
+        for _, row in low.iterrows():
+            alerts.append({
+                "type": "warning",
+                "domain": "members",
+                "message": f"Low attendance: {row['name']} ({row['attendance_pct']}%)"
+            })
+
+        # Projects: overdue
+        df = pd.read_csv("data/projects.csv")
+        overdue = df[(df['completion_pct'] < 50) & (df['status'] == 'Active')]
+        for _, row in overdue.iterrows():
+            alerts.append({
+                "type": "danger",
+                "domain": "projects",
+                "message": f"At risk: {row['project_name']} ({row['completion_pct']}% complete)"
+            })
+
+    except Exception as e:
+        alerts.append({"type": "danger", "domain": "system", "message": str(e)})
+
+    return {"alerts": alerts[:10]}  # cap at 10     
+
+@app.get("/stats/{domain}")
+def get_stats(domain: str):
+    try:
+        df = pd.read_csv(f"data/{domain}.csv")
+        if domain == "members":
+            counts = df['role'].value_counts().to_dict()
+            return {"labels": list(counts.keys()), "data": list(counts.values())}
+        elif domain == "events":
+            counts = df['event_type'].value_counts().to_dict()
+            return {"labels": list(counts.keys()), "data": list(counts.values())}
+        elif domain == "communications":
+            counts = df['channel'].value_counts().to_dict()
+            return {"labels": list(counts.keys()), "data": list(counts.values())}
+        elif domain == "finance":
+            counts = df['category'].value_counts().to_dict()
+            return {"labels": list(counts.keys()), "data": list(counts.values())}
+        elif domain == "projects":
+            counts = df['status'].value_counts().to_dict()
+            return {"labels": list(counts.keys()), "data": list(counts.values())}
+    except Exception as e:
+        return {"labels": [], "data": [], "error": str(e)}
 
 app.add_middleware(
     CORSMiddleware,
