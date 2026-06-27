@@ -41,9 +41,7 @@ def save_cache(cache):
         json.dump(cache, f, indent=2)
 
 def refresh_insights():
-    time_of_cache_refresh = datetime.datetime.now()
-    cache = load_cache()
-    
+    cache = load_cache()  # load existing first
     for domain in DOMAINS:
         try:
             topic = DOMAIN_TOPICS[domain]
@@ -52,13 +50,10 @@ def refresh_insights():
                 "insight": insight,
                 "generated_at": str(datetime.datetime.now())
             }
-            time.sleep(2)  # avoid rate limiting between domains
         except Exception as e:
-            logging.info("your message")
             logging.error(f"Failed for {domain}: {e}")
-    
+            # keeps old cache for this domain
     save_cache(cache)
-    
 
 def get_cached_insight(domain):
     cache = load_cache()
