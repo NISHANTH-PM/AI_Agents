@@ -63,6 +63,7 @@ def get_cached_insight(domain):
 
 def start_scheduler():
     def run():
+        time.sleep(3600)  # wait 1 hour before first refresh
         while True:
             refresh_insights()
             time.sleep(INTERVAL_HOURS * 3600)
