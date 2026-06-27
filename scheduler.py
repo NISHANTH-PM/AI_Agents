@@ -7,6 +7,9 @@ from agents.insights import generate_insights
 from dotenv import load_dotenv
 import logging
 
+os.makedirs('logs', exist_ok=True)
+os.makedirs('cache', exist_ok=True)
+
 logging.basicConfig(
     filename='logs/scheduler.log',
     level=logging.INFO,
@@ -34,7 +37,6 @@ def load_cache():
     return {}
 
 def save_cache(cache):
-    os.makedirs("cache", exist_ok=True)
     with open(CACHE_FILE, "w") as f:
         json.dump(cache, f, indent=2)
 
