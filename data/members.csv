@@ -1,0 +1,51 @@
+member_id,name,age,gender,branch,gpa,attendance_pct,clubs,skills,role,join_date,is_active
+b37412a3-fa5c-40ca-b087-7109a47482d7,Amit,21.0,Male,MECH,6.99,70.45,"Literary Society, Robotics","C++, Machine Learning, Python, Java",Active Member,2021-10-11,True
+65001423-faeb-4d19-a550-8ea26133a34d,Tina Ballard,19.0,Male,ECE,6.46,65.45,"Literary Society, Coding Club","C++, SQL, Web Development",Active Member,2022-09-09,True
+228aaf1d-8710-4c8d-bfec-001b0df01f34,Meena,19.0,Female,CIVIL,7.08,84.79,Literary Society,"Data Science, SQL, Machine Learning",General Member,2022-03-28,True
+1aa67474-e200-4157-ad54-c95aaa4d52a8,Christopher Morales,23.0,Male,ECE,6.92,62.26,"Coding Club, Entrepreneurship Cell","Python, SQL, Java",Active Member,2021-10-15,True
+5122db4a-14c8-44d7-b2f4-e869f69d3dd7,Siddharth,20.0,Male,EEE,7.09,97.12,Robotics,"C++, SQL, Java, Python",General Member,2021-09-10,True
+28dd6ff3-6391-4421-ba38-3c3164b96252,Siddharth,19.0,Male,MECH,7.36,62.56,Sports Club,"SQL, Python",General Member,2023-06-01,True
+5c375254-a8fc-4690-a9b1-c4a1da221b85,Alicia Dillon,18.0,Female,MECH,7.06,82.62,"Entrepreneurship Cell, Robotics, Cultural Club","Web Development, C++, Machine Learning",Core Member,2021-07-21,True
+1090fccc-de58-401b-9cb7-b64f927e5e08,Rahul,23.0,Male,IT,6.67,97.72,"Literary Society, Cultural Club, Sports Club","C++, Java, Web Development, SQL, Python",Core Member,2023-03-07,True
+3f87e362-cf8d-446a-bc2c-bb0ddd334cc7,Richard Rodriguez,18.0,Male,EEE,7.34,74.15,"Entrepreneurship Cell, Literary Society, Cultural Club","Python, SQL, C++, Web Development, Java",Core Member,2021-10-30,False
+db0f4094-ae51-472d-b7a5-5c76fa4e4399,Anil,18.0,Male,CSE,7.19,76.12,"Coding Club, Literary Society, Sports Club","Machine Learning, Data Science, Python, SQL, C++",Core Member,2022-10-10,True
+e87d1c78-e7c4-41c7-8049-7b717d106c60,Anna Henderson,23.0,Female,EEE,7.17,73.88,Coding Club,"C++, Python, Machine Learning",General Member,2022-01-31,True
+e2eac79e-9c04-46b5-ba30-4ee023c04f78,Neha,23.0,Female,CSE,7.33,91.85,Literary Society,"C++, SQL, Web Development, Java",General Member,2022-05-27,True
+1750bd26-bcfc-4af5-9881-a1f0fbbb523a,Pooja,23.0,Female,CIVIL,7.5,99.1,"Coding Club, Robotics, Sports Club","Java, Python, Web Development, Data Science, C++",Core Member,2022-10-02,False
+aa604892-3926-42e9-9b58-eb49c9784b52,Casey Parker,21.0,Female,ECE,6.72,84.32,"Entrepreneurship Cell, Sports Club","Machine Learning, C++, Data Science, Web Development, SQL",Active Member,2021-09-26,True
+f0cd7f05-ea87-455e-a382-95d31e0ef546,Lucas Robinson,20.0,Female,ECE,6.22,92.43,Sports Club,"Data Science, Machine Learning, Java",General Member,2022-07-08,True
+c24369e7-2387-4af6-94c3-a832b231c60b,Joan Smith,23.0,Male,EEE,6.52,62.63,"Robotics, Entrepreneurship Cell, Cultural Club","Data Science, C++, Python",Core Member,2021-10-08,True
+63b664f4-0452-4779-90ff-de646edaba8c,Kimberly May,19.0,Male,EEE,7.06,65.6,"Coding Club, Cultural Club","SQL, Java, Data Science, Machine Learning, Web Development",Active Member,2023-04-25,False
+7a8d03aa-782a-45e0-88ca-765192f5df7b,Cody Williams,21.0,Female,MECH,7.23,75.04,"Robotics, Sports Club, Literary Society","Python, Data Science",Core Member,2021-11-08,True
+6d59c708-298e-45cc-a9e6-eaa3024e260c,Priya,22.0,Female,MECH,6.49,71.11,Cultural Club,"Web Development, Python, SQL, C++",General Member,2023-04-23,True
+05a321d4-578e-468a-a1bf-4038a4de8d28,Pooja,22.0,Female,CIVIL,6.71,86.48,"Literary Society, Entrepreneurship Cell","SQL, Web Development, Java",Active Member,2022-05-05,True
+3c088990-54a2-4051-bb0c-cad9eee13cae,Michael Meadows,23.0,Female,MECH,6.58,70.52,Cultural Club,"SQL, C++, Web Development",General Member,2022-06-09,False
+30de38b1-b636-4896-9fd9-75371d069988,Pooja,19.0,Female,EEE,7.24,65.67,Cultural Club,"Java, Data Science",General Member,2022-11-04,True
+0411292b-9b9f-42dc-8f42-74c780290ce1,Anil,21.0,Male,CIVIL,7.54,74.41,"Sports Club, Literary Society, Robotics","Web Development, Data Science",Core Member,2022-08-18,True
+2c222096-5250-47fe-86f0-33f945641768,Neha,21.0,Female,CSE,7.49,94.13,"Coding Club, Entrepreneurship Cell, Cultural Club","SQL, C++, Web Development",Core Member,2022-07-21,False
+4490d77e-016f-4ace-8f4b-a812bf94bdaf,Karan,23.0,Male,EEE,6.87,70.09,Robotics,"SQL, Web Development, Java, Python",General Member,2022-01-08,True
+e82c7d7b-06e7-45f9-88bc-539c9f4c3b79,Justin Johnson,23.0,Female,CIVIL,7.24,72.32,"Cultural Club, Sports Club, Literary Society","Data Science, Web Development",Core Member,2022-04-03,True
+d23484de-a436-415a-9041-63731d745f08,Rahul,23.0,Male,ECE,7.2,84.17,"Coding Club, Entrepreneurship Cell","C++, Data Science, SQL",Active Member,2021-12-08,True
+74f76d09-739c-4fa5-9bfc-270c85494255,Amanda Forbes,20.0,Female,ECE,7.02,89.66,"Sports Club, Coding Club","Python, SQL, Data Science, C++, Java",Active Member,2022-10-03,True
+880bcb0e-c8ab-46ac-a0b4-659a09fe4cdd,Autumn Olson,22.0,Male,EEE,6.86,98.63,"Entrepreneurship Cell, Literary Society, Sports Club","Machine Learning, Java, C++, Python, Data Science",Core Member,2022-05-10,True
+c1590f53-8a0f-4efb-adcd-465e36386821,Christina Collins,19.0,Female,ECE,6.87,88.04,Cultural Club,"Data Science, Python, C++, Java",General Member,2021-07-22,True
+0cf173f9-74d9-41f5-8877-58043fde9814,Michele Hill,21.0,Female,IT,7.08,82.59,"Entrepreneurship Cell, Literary Society","C++, Web Development, Python",Active Member,2022-03-10,True
+631d9c8b-e0f0-4e79-81f7-4651a033edad,Robin Johnson,19.0,Male,ECE,6.94,69.49,"Sports Club, Literary Society, Cultural Club","Machine Learning, Data Science, Java, Python",Core Member,2023-01-12,True
+ca8e858c-d0f8-4063-889f-e107443b1d0f,Amy Davies,19.0,Female,CSE,7.16,86.89,Cultural Club,"Data Science, Python",General Member,2022-10-18,False
+698f546d-5f29-4290-9848-5a54531c8812,Jessica Swanson,23.0,Female,CIVIL,6.7,80.13,"Coding Club, Sports Club","C++, Python, Web Development, SQL",Active Member,2021-08-28,True
+5667ac99-2136-4f0d-96d4-a0d028e648ad,Divya,18.0,Female,EEE,7.1,63.66,"Entrepreneurship Cell, Coding Club","C++, SQL, Web Development",Active Member,2022-11-23,False
+7aa061e9-336b-40cb-b1fe-ad13f280df1d,Vincent Novak,19.0,Female,IT,6.67,96.62,"Robotics, Literary Society","Data Science, Python, C++, SQL",Active Member,2023-05-13,True
+e7a44fad-e32b-43ad-96d7-0de3f597a515,Anil,19.0,Male,IT,7.3,87.38,Coding Club,"Machine Learning, Python, Web Development",General Member,2022-10-19,False
+0d810ca6-4fee-4e9f-b557-87121f011458,Rakhi,19.0,Female,IT,7.31,60.23,Coding Club,"Python, C++, SQL",General Member,2023-05-31,True
+27b7f912-31fc-466d-8913-89de414a9f3a,Sonal,19.0,Female,EEE,7.01,96.52,"Entrepreneurship Cell, Coding Club, Robotics","Python, Web Development, SQL, Machine Learning",Core Member,2022-01-06,True
+4082cbb9-48bd-4b3e-a2f5-df2badaa44ca,Mary Escobar,23.0,Female,ECE,6.8,71.76,"Coding Club, Literary Society","Java, Web Development",Active Member,2023-05-18,True
+bd1531c8-3764-4bda-b108-d4482f65fafa,Dr. William Warren,21.0,Female,EEE,6.97,75.45,"Literary Society, Entrepreneurship Cell","Java, Data Science, Machine Learning, Web Development, SQL",Active Member,2023-01-14,False
+64dea18b-c401-4870-a647-b0c6dd431dce,Neha,22.0,Female,MECH,7.62,71.68,"Cultural Club, Robotics, Literary Society","SQL, Machine Learning, Java",Core Member,2023-01-18,True
+b526b22d-3f6c-41f7-8a05-37f02c2cd22b,Jeffrey Mills,21.0,Female,IT,7.22,65.27,"Entrepreneurship Cell, Robotics, Coding Club","Web Development, Java",Core Member,2022-03-01,True
+2d7e4a45-2099-471f-8b65-7bccb0416f19,Tiffany Fry,19.0,Male,MECH,7.38,72.69,"Cultural Club, Sports Club","SQL, Python, Web Development, Java, C++",Active Member,2022-11-17,True
+69bcdf4c-f0f4-4cf5-ae95-1c33ed5d4e6b,Vikram,19.0,Male,MECH,6.63,99.38,"Sports Club, Coding Club","Python, Java, Data Science, C++",Active Member,2021-11-08,True
+2db13deb-ee6f-4bea-8df7-164713769ff9,Hayden Shannon,20.0,Female,ECE,7.19,97.77,"Cultural Club, Robotics, Entrepreneurship Cell","Machine Learning, Web Development",Core Member,2022-10-28,True
+02106371-0260-4123-b1ef-e72aae13591e,Ruth Mcneil,18.0,Female,ECE,7.6,82.46,"Sports Club, Robotics, Literary Society","Python, Web Development, C++, Data Science",Core Member,2023-04-08,True
+77e8b762-bb7e-4979-92dc-bffd59008d65,Ronald Rocha,19.0,Female,EEE,7.09,96.64,"Entrepreneurship Cell, Literary Society, Cultural Club","Python, Data Science, Java, C++, Machine Learning",Core Member,2021-07-21,True
+94a1875d-2db6-4edb-82de-ffccf86c2ca2,Deborah Rodriguez,19.0,Male,ECE,6.86,78.21,"Cultural Club, Literary Society, Sports Club","Data Science, Python, Java, C++, SQL",Core Member,2021-12-14,True
+de285d9b-4a10-446d-a1d9-e78b8d87831a,Siddharth,23.0,Male,IT,6.49,78.09,Cultural Club,"C++, Java",General Member,2022-03-31,True

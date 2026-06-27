@@ -1,0 +1,51 @@
+transaction_id,club,event_id,date,type,category,amount,approved_by,status,notes
+70a76159-97e1-43ef-a8f9-e2ea379104e5,Literary Society,f920d700-b298-4012-8aec-9e3153e12e34,2023-01-26,Expense,Catering,1163.78,Faculty Advisor,Approved,For Debate Night
+46b9ba1c-955e-45e6-bb92-97481bdfa7a0,Literary Society,f920d700-b298-4012-8aec-9e3153e12e34,2023-01-26,Expense,Miscellaneous,2536.51,Faculty Advisor,Pending,For Debate Night
+a1786fd0-a50c-4a8c-bca8-1bddbc5e4784,Literary Society,f920d700-b298-4012-8aec-9e3153e12e34,2023-01-26,Expense,Catering,4187.2,Faculty Advisor,Approved,For Debate Night
+f271f937-dcd3-49e6-8833-f62fe453f5cc,Literary Society,f920d700-b298-4012-8aec-9e3153e12e34,2023-01-26,Expense,Printing,2250.81,Faculty Advisor,Pending,For Debate Night
+02a320b9-6a85-49d4-960e-26ee74feda54,Literary Society,f920d700-b298-4012-8aec-9e3153e12e34,2023-01-26,Income,Fundraiser,25087.52,Treasurer,Confirmed,Income for Debate Night
+f6124f7c-6e53-4768-8b85-9d3939cd6d22,Literary Society,f238a824-5f1c-4c1d-bdf0-6802368a0816,2024-03-08,Expense,Speaker Fees,2062.6,Faculty Advisor,Pending,For Annual Poetry Slam
+a931fcb3-1636-4fb7-ba65-2b60642c5feb,Literary Society,f238a824-5f1c-4c1d-bdf0-6802368a0816,2024-03-08,Expense,Venue Booking,13936.08,Faculty Advisor,Approved,For Annual Poetry Slam
+154f1023-d021-419f-98b8-dd61a4802e74,Literary Society,f238a824-5f1c-4c1d-bdf0-6802368a0816,2024-03-08,Expense,Miscellaneous,7132.12,Faculty Advisor,Approved,For Annual Poetry Slam
+1d25e90d-f671-45f4-9070-686c6ae3b886,Literary Society,f238a824-5f1c-4c1d-bdf0-6802368a0816,2024-03-08,Income,College Grant,16850.2,Treasurer,Confirmed,Income for Annual Poetry Slam
+72b61e92-2ab1-421b-97ab-7ff4da389e86,Literary Society,f238a824-5f1c-4c1d-bdf0-6802368a0816,2024-03-08,Income,College Grant,17490.34,Treasurer,Confirmed,Income for Annual Poetry Slam
+a1bf7011-a4e5-4fb4-a7e5-fb2d09c8c5b4,Literary Society,395fe8ac-4e97-4b3b-a030-950d94c23bf5,2024-10-27,Expense,Miscellaneous,13903.38,Faculty Advisor,Approved,For Author Talk
+59fba51d-f464-48a1-b596-167e586c8741,Literary Society,395fe8ac-4e97-4b3b-a030-950d94c23bf5,2024-10-27,Expense,Equipment,11092.17,Faculty Advisor,Approved,For Author Talk
+ba86a483-48e9-4767-aae0-8b368826f436,Literary Society,395fe8ac-4e97-4b3b-a030-950d94c23bf5,2024-10-27,Expense,Catering,6117.38,Faculty Advisor,Approved,For Author Talk
+0bc77829-f7cf-4d5c-8795-93ef1ff2cc40,Literary Society,395fe8ac-4e97-4b3b-a030-950d94c23bf5,2024-10-27,Expense,Merchandise,6570.64,Faculty Advisor,Approved,For Author Talk
+264beabc-f381-4350-aa79-9db566cd35d3,Literary Society,395fe8ac-4e97-4b3b-a030-950d94c23bf5,2024-10-27,Expense,Prizes,6269.11,Faculty Advisor,Approved,For Author Talk
+416dae72-d043-4d69-bdff-0cc817781bc6,Literary Society,395fe8ac-4e97-4b3b-a030-950d94c23bf5,2024-10-27,Income,Fundraiser,24534.31,Treasurer,Confirmed,Income for Author Talk
+f168a4e5-d2f6-434c-a8d7-3fe9bbc37162,Literary Society,395fe8ac-4e97-4b3b-a030-950d94c23bf5,2024-10-27,Income,Sponsorship,13556.87,Treasurer,Confirmed,Income for Author Talk
+afc0eb40-9b8b-4f1f-a145-0f37d6b5e7fd,Literary Society,fa12affd-ae9b-4121-a98e-00fe0168e644,2024-03-08,Expense,Speaker Fees,10822.18,Faculty Advisor,Approved,For Debate Night
+18bb9906-bd03-4e7b-816f-7b4728f9d5ec,Literary Society,fa12affd-ae9b-4121-a98e-00fe0168e644,2024-03-08,Expense,Printing,3540.83,Faculty Advisor,Approved,For Debate Night
+cd7d28b0-dfcf-43c1-9199-fe53648dbcbe,Literary Society,fa12affd-ae9b-4121-a98e-00fe0168e644,2024-03-08,Expense,Speaker Fees,13857.28,Faculty Advisor,Approved,For Debate Night
+4df2b21b-b051-4482-891d-28a05bf71d6f,Literary Society,fa12affd-ae9b-4121-a98e-00fe0168e644,2024-03-08,Expense,Equipment,7806.45,Faculty Advisor,Approved,For Debate Night
+1a75570b-2575-4dc3-98d9-0ab18c4ff20e,Literary Society,fa12affd-ae9b-4121-a98e-00fe0168e644,2024-03-08,Income,College Grant,23301.7,Treasurer,Confirmed,Income for Debate Night
+f76465f7-bf6b-4653-9495-f0f96d55310e,Literary Society,fa12affd-ae9b-4121-a98e-00fe0168e644,2024-03-08,Income,Alumni Donation,15450.36,Treasurer,Confirmed,Income for Debate Night
+3aba650d-15a8-472a-9941-9a619e30d45a,Literary Society,fa12affd-ae9b-4121-a98e-00fe0168e644,2024-03-08,Income,Alumni Donation,28394.86,Treasurer,Confirmed,Income for Debate Night
+5422108a-ea19-475d-8cbd-1e6059fba8ce,Literary Society,2a70b025-f99b-45b8-ab82-c6542070bf6e,2024-09-10,Expense,Prizes,13223.42,Faculty Advisor,Pending,For Debate Night
+8cdd28b8-8711-4046-a0f6-544ba76f9963,Literary Society,2a70b025-f99b-45b8-ab82-c6542070bf6e,2024-09-10,Expense,Venue Booking,8079.58,Faculty Advisor,Approved,For Debate Night
+b926d40f-a270-402c-b38d-53e2625cb982,Literary Society,2a70b025-f99b-45b8-ab82-c6542070bf6e,2024-09-10,Expense,Merchandise,2607.24,Faculty Advisor,Approved,For Debate Night
+bcea8a9f-1675-46df-a7c8-23d26458377b,Literary Society,2a70b025-f99b-45b8-ab82-c6542070bf6e,2024-09-10,Expense,Printing,4371.18,Faculty Advisor,Approved,For Debate Night
+280f17b0-dd2a-4fc4-8740-5383655856fc,Literary Society,2a70b025-f99b-45b8-ab82-c6542070bf6e,2024-09-10,Expense,Prizes,10409.16,Faculty Advisor,Approved,For Debate Night
+cb23ef5e-904b-41d0-8fb0-d6c295f26b0d,Literary Society,2a70b025-f99b-45b8-ab82-c6542070bf6e,2024-09-10,Income,Registration Fee,7712.03,Treasurer,Confirmed,Income for Debate Night
+2b3a851f-8c30-46e4-a942-f0ce490cc8d9,Literary Society,63087e30-4470-401e-b681-51d2dba64ab1,2023-10-28,Expense,Speaker Fees,12303.38,Faculty Advisor,Approved,For Author Talk
+f83a9b7e-d20d-4151-99f5-bfdf2f3bd498,Literary Society,63087e30-4470-401e-b681-51d2dba64ab1,2023-10-28,Expense,Printing,11264.98,Faculty Advisor,Pending,For Author Talk
+da39a5d1-c43e-4be2-8b49-5ed35031644f,Literary Society,63087e30-4470-401e-b681-51d2dba64ab1,2023-10-28,Income,Alumni Donation,23960.6,Treasurer,Confirmed,Income for Author Talk
+06c70ba4-dfdc-4931-ad40-ffcb0d638df9,Literary Society,b1dae3cc-11f6-4409-aa18-c2cbd62bcf31,2023-03-23,Expense,Venue Booking,13934.03,Faculty Advisor,Pending,For Book Club Meet
+4b41ca4f-3782-4d40-9a90-d2eee5ec8f94,Literary Society,b1dae3cc-11f6-4409-aa18-c2cbd62bcf31,2023-03-23,Expense,Merchandise,14372.18,Faculty Advisor,Approved,For Book Club Meet
+89ccc732-4b9b-4b09-9927-1a4c2822580c,Literary Society,b1dae3cc-11f6-4409-aa18-c2cbd62bcf31,2023-03-23,Expense,Venue Booking,688.0,Faculty Advisor,Approved,For Book Club Meet
+517583a2-a4d0-4cc3-a26f-2ba5b040c083,Literary Society,b1dae3cc-11f6-4409-aa18-c2cbd62bcf31,2023-03-23,Expense,Printing,9498.14,Faculty Advisor,Pending,For Book Club Meet
+4557f62a-439e-4fe3-9733-589f20ecf72f,Literary Society,b1dae3cc-11f6-4409-aa18-c2cbd62bcf31,2023-03-23,Income,Registration Fee,23143.02,Treasurer,Confirmed,Income for Book Club Meet
+a21d5cbf-2a67-44d3-92a1-28ddb6f8ba92,Literary Society,a4598cc8-c087-4c87-bda2-3423039fcad7,2023-12-30,Expense,Printing,4765.58,Faculty Advisor,Approved,For Book Club Meet
+14a69cdd-418a-4392-87ab-5fd1f26e7ee8,Literary Society,a4598cc8-c087-4c87-bda2-3423039fcad7,2023-12-30,Expense,Catering,3211.16,Faculty Advisor,Approved,For Book Club Meet
+3f433b55-ec2d-4c98-81f5-b2e81e8ae865,Literary Society,a4598cc8-c087-4c87-bda2-3423039fcad7,2023-12-30,Expense,Catering,5969.37,Faculty Advisor,Pending,For Book Club Meet
+d27aed3c-e233-4a51-98c8-bd42fa7cd126,Literary Society,a4598cc8-c087-4c87-bda2-3423039fcad7,2023-12-30,Income,Alumni Donation,9398.71,Treasurer,Confirmed,Income for Book Club Meet
+3a5f21fa-f20b-4aa8-9bd3-5e2fbe0c3ca6,Literary Society,a4598cc8-c087-4c87-bda2-3423039fcad7,2023-12-30,Income,Sponsorship,18351.61,Treasurer,Confirmed,Income for Book Club Meet
+851e4b4f-3d81-4645-b78a-87ccf6cc0bc4,Literary Society,f0bf717b-c86d-4fdd-be22-d377f9889f69,2024-04-18,Expense,Venue Booking,5293.16,Faculty Advisor,Approved,For Creative Writing Workshop
+49f1b39a-e451-421c-b199-087d430afa3c,Literary Society,f0bf717b-c86d-4fdd-be22-d377f9889f69,2024-04-18,Expense,Venue Booking,2728.7,Faculty Advisor,Approved,For Creative Writing Workshop
+c0b9e15c-7b1b-4b88-9181-5971b88a1ad0,Literary Society,f0bf717b-c86d-4fdd-be22-d377f9889f69,2024-04-18,Expense,Venue Booking,11718.08,Faculty Advisor,Approved,For Creative Writing Workshop
+245529c8-3cf3-412a-acae-61f8f3df1aab,Literary Society,f0bf717b-c86d-4fdd-be22-d377f9889f69,2024-04-18,Expense,Miscellaneous,11953.67,Faculty Advisor,Approved,For Creative Writing Workshop
+be7a0196-1169-4a8c-a129-306acf8c4093,Literary Society,f0bf717b-c86d-4fdd-be22-d377f9889f69,2024-04-18,Income,Registration Fee,16711.06,Treasurer,Confirmed,Income for Creative Writing Workshop
+3e8aac7b-b334-432f-b62e-8b65e69dc5d7,Literary Society,c1d08be7-ac85-4d44-85ec-eb193f3634e3,2023-11-20,Expense,Catering,11900.74,Faculty Advisor,Approved,For Creative Writing Workshop
+110cd927-6b6c-4740-8b28-8efdf70fd6b0,Literary Society,c1d08be7-ac85-4d44-85ec-eb193f3634e3,2023-11-20,Expense,Merchandise,8374.66,Faculty Advisor,Pending,For Creative Writing Workshop

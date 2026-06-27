@@ -1,0 +1,51 @@
+event_id,club,event_name,event_type,date,venue,capacity,registered,attended,attendance_rate,satisfaction_score,organizer_id,budget_allocated,budget_spent
+f920d700-b298-4012-8aec-9e3153e12e34,Literary Society,Debate Night,Seminar,2023-01-26,Conference Room,87,51,33,0.65,4.5,793edd42-06cc-42e4-8d19-803d983a627c,10697,41698
+f238a824-5f1c-4c1d-bdf0-6802368a0816,Literary Society,Annual Poetry Slam,Workshop,2024-03-08,Online,53,32,22,0.69,4.3,6883ac6e-6a94-4054-b241-4482519894d8,18031,49925
+395fe8ac-4e97-4b3b-a030-950d94c23bf5,Literary Society,Author Talk,Competition,2024-10-27,Lab Block 3,86,71,60,0.85,4.7,e2eac79e-9c04-46b5-ba30-4ee023c04f78,15463,48753
+fa12affd-ae9b-4121-a98e-00fe0168e644,Literary Society,Debate Night,Hackathon,2024-03-08,Auditorium,69,47,38,0.81,3.4,5e9ca06c-8409-4db4-ae3e-f4b2e7e139a3,28526,25541
+2a70b025-f99b-45b8-ab82-c6542070bf6e,Literary Society,Debate Night,Exhibition,2024-09-10,Auditorium,41,34,28,0.82,5.0,ac25d6a8-cae2-418d-8998-53bd533fbc2a,10164,39178
+63087e30-4470-401e-b681-51d2dba64ab1,Literary Society,Author Talk,Exhibition,2023-10-28,Conference Room,122,97,70,0.72,3.3,74f43a77-70a1-4e4c-a0c2-460d939618c9,19935,21965
+b1dae3cc-11f6-4409-aa18-c2cbd62bcf31,Literary Society,Book Club Meet,Exhibition,2023-03-23,Open Ground,55,39,31,0.79,4.3,34879e41-1a9c-472a-8eb9-047dba2ac3d9,15659,27260
+a4598cc8-c087-4c87-bda2-3423039fcad7,Literary Society,Book Club Meet,Guest Talk,2023-12-30,Online,98,93,59,0.63,4.3,0037eee4-0b04-402a-9c6d-5c8d44372d02,21043,13708
+f0bf717b-c86d-4fdd-be22-d377f9889f69,Literary Society,Creative Writing Workshop,Hackathon,2024-04-18,Seminar Hall A,193,184,181,0.98,4.4,3782490b-f9eb-49ed-bc78-f61634759a3c,20010,5103
+c1d08be7-ac85-4d44-85ec-eb193f3634e3,Literary Society,Creative Writing Workshop,Hackathon,2023-11-20,Conference Room,46,29,26,0.9,3.8,b40a3f7d-353d-45f8-b1f0-69a983a0ba0f,37717,28928
+ec14d1d5-664e-4ebf-9c8c-7843b20e08eb,Literary Society,Creative Writing Workshop,Seminar,2024-10-20,Conference Room,97,56,40,0.71,4.2,38d5101f-423c-4d9d-993e-478302b34254,43311,31077
+f60886e8-0537-42e7-827b-00801c695185,Literary Society,Creative Writing Workshop,Hackathon,2024-08-20,Open Ground,86,51,46,0.9,3.4,bb103d64-e9ad-4950-aa4b-b364bedcb781,12185,13016
+60e1720a-2da6-44a6-9e83-370576c7436c,Literary Society,Book Club Meet,Exhibition,2024-10-04,Open Ground,138,77,70,0.91,4.3,0f5ae9d3-8e6e-4003-a14f-3f12cfd01cbd,39676,19476
+663460a7-abd8-4d69-855a-f2a6b71201fc,Literary Society,Annual Poetry Slam,Guest Talk,2024-07-20,Lab Block 3,59,50,47,0.94,4.6,4ddb1b36-272c-4588-84a2-576c1fc905f8,12310,22234
+6e86807a-e6cb-45e7-917f-70e0cc30a60c,Literary Society,Book Club Meet,Competition,2024-03-21,Seminar Hall A,30,23,21,0.91,4.1,b59c9eb1-aa09-4614-af9e-a43802bf5ea2,45979,22558
+8075d637-a1bf-493f-afd9-e1dd43c6af6e,Literary Society,Author Talk,Social,2024-10-16,Seminar Hall A,80,49,40,0.82,4.2,b86e2cbe-f3e3-4f2a-bccf-a19ef9647b9d,5037,42252
+350328f1-fb66-4c7b-a92f-1f4ff6fdb4fb,Literary Society,Creative Writing Workshop,Workshop,2023-11-28,Lab Block 3,58,58,45,0.78,3.6,e6338ef1-cf70-4122-9cfc-e6d427c4dbd4,42182,8161
+f036c775-abf0-4fdf-a9a2-015fdaf66694,Literary Society,Creative Writing Workshop,Exhibition,2023-03-29,Seminar Hall A,47,47,45,0.96,3.4,3227e8d8-9c60-481b-8119-1aa71b61d453,41031,13821
+02abf103-f768-4ff4-82d1-4c05698bb0e9,Literary Society,Author Talk,Exhibition,2023-09-29,Online,185,146,100,0.68,4.6,760e1e99-33d9-40d4-9e82-7e62ace81193,25428,29148
+21ddac42-50ac-411a-9a06-e860fb531c07,Robotics,AI in Robotics Talk,Competition,2024-03-24,Auditorium,60,37,29,0.78,3.8,5b8c8969-c81d-4cab-9a4c-d1f09971c808,41301,18080
+e8f4dfd9-b99d-4d19-bc29-9f4a7e28714b,Robotics,Arduino Workshop,Workshop,2024-08-25,Seminar Hall A,48,46,28,0.61,3.3,fd5ffd0d-aa91-418c-9cc9-36e45c3daff5,26654,7643
+f31be5b6-ebd0-4fe4-aeb0-ae522d30fa50,Robotics,Arduino Workshop,Hackathon,2024-06-10,Seminar Hall A,154,104,96,0.92,4.5,5a104129-54ae-4d1b-8ce6-424dbef59fe6,42762,33976
+bd006ba9-f833-4b0e-a32c-79e73e4e12e0,Robotics,PCB Design Session,Exhibition,2023-09-06,Auditorium,134,91,60,0.66,4.4,f4188f3f-8a14-4e62-a95b-4715c333e861,32759,29941
+e563250d-79c9-4c5f-ae58-8d742fc10ccf,Robotics,Bot Wars Competition,Guest Talk,2024-04-23,Auditorium,197,180,120,0.67,3.9,48769153-c688-43fe-9255-5c758d55119e,12161,19295
+dfdb865b-e62c-4666-bd78-c2f93f8c5c3d,Robotics,Arduino Workshop,Social,2023-07-16,Seminar Hall A,144,89,80,0.9,3.7,27c7655a-7b43-4a72-a2c0-c475a54976d0,9940,32041
+d2156665-6cd9-4192-95fe-bb8d11a5cfaa,Robotics,Bot Wars Competition,Workshop,2024-07-17,Auditorium,196,167,101,0.6,4.9,947aacc9-c43b-4287-96c4-80a387cada66,15899,29634
+75338d84-0246-48f6-9999-20439b3afb50,Robotics,PCB Design Session,Seminar,2024-05-12,Open Ground,132,73,48,0.66,3.2,c15a09f9-e21e-46ca-a358-abfe58671262,22380,32819
+5a89b61c-bcc8-473c-a759-81d8fccb0a31,Robotics,PCB Design Session,Guest Talk,2023-10-20,Seminar Hall A,172,170,164,0.96,3.5,dc7204f3-018c-4f79-8fdd-b169f8e1e127,8832,40957
+32fe825a-9a28-4d52-8bf6-06b4141169e4,Robotics,Bot Wars Competition,Guest Talk,2024-07-09,Online,110,58,35,0.6,4.1,bf3c4c06-4343-48bc-89fa-6a688fb5d27b,15317,6727
+334690c9-3ce6-455e-81b9-f8b7d4171199,Robotics,Bot Wars Competition,Exhibition,2024-06-04,Conference Room,77,42,27,0.64,4.8,d9aa533d-fe43-4234-9114-a28fbdc3ffb1,12856,40334
+916534a4-278e-475c-9ff5-d8f6991db180,Robotics,AI in Robotics Talk,Social,2023-09-10,Open Ground,40,39,25,0.64,4.4,4943cbd4-d52c-4069-980f-3e27ced5fe44,39261,23733
+dbcb6c66-73c6-4269-9920-01c690f38d09,Robotics,Arduino Workshop,Guest Talk,2023-09-25,Open Ground,110,70,50,0.71,3.4,43b38eb4-0390-4c5d-a502-d6a2ca6a2224,24660,32964
+d66b41ef-b5a1-4645-afe2-6d9595bfc01e,Robotics,Bot Wars Competition,Workshop,2023-11-20,Auditorium,147,145,93,0.64,4.2,412ea133-3344-4ae0-a6ef-b78561862866,22380,11680
+5dfa2153-db3f-468d-a09c-817655857dc1,Robotics,Bot Wars Competition,Seminar,2023-12-24,Open Ground,124,80,58,0.72,4.7,71be94c3-6ab1-4db6-9da4-66feb0937085,45086,45858
+3c1258e6-572c-487d-bf1a-5b63b6301459,Robotics,Bot Wars Competition,Guest Talk,2024-06-25,Auditorium,171,123,115,0.93,4.9,f5faa704-64e5-4b23-8048-77271ce32bfd,22332,10564
+38b5f85e-ff94-4641-8934-6dbbf85171cb,Robotics,AI in Robotics Talk,Seminar,2023-04-20,Seminar Hall A,99,67,59,0.88,4.5,20156a72-12e1-43a6-932c-ae01d2c65ee4,46565,20300
+2ab862ca-f1ad-4327-bee5-bb7ae6eae92b,Robotics,PCB Design Session,Hackathon,2024-06-01,Open Ground,43,23,23,1.0,4.7,1b3158d7-fd87-41d7-9ecf-eb4e6484473f,5232,24859
+cf80dfd2-88fe-4016-894b-bcffb8b8f7c1,Robotics,Drone Racing,Seminar,2023-05-14,Open Ground,143,141,129,0.91,4.2,b41eedde-bbb0-4e44-92ad-bb7281df4d96,9931,48286
+d1bf0317-2b77-4bdf-a19b-63e9026926c4,Robotics,AI in Robotics Talk,Workshop,2023-06-02,Seminar Hall A,124,99,94,0.95,4.0,d28fcf68-c871-47b3-8468-b74d85e3ade5,25202,26897
+fa4ccc77-3577-4c74-9c26-f2db509405d8,Robotics,Drone Racing,Seminar,2023-02-10,Lab Block 3,93,88,58,0.66,4.6,406bf02d-a97a-4f4e-bc10-871bba4f4b03,45675,13128
+ae2a6f7a-bbeb-49fc-95ae-0d193510a002,Robotics,Arduino Workshop,Exhibition,2023-08-31,Seminar Hall A,75,63,37,0.59,4.5,a995ecc3-6f5b-49a6-8ff1-c51f915cb31b,31982,46903
+857bd44c-9d0e-4d2e-a912-a61207f75d4f,Robotics,Drone Racing,Seminar,2023-09-12,Open Ground,57,40,25,0.62,3.6,7e7d9a19-ab45-4578-92fb-acf6d5d1c669,27915,23000
+68551089-2c3b-4345-a5ba-09b9ad46e4ba,Coding Club,LeetCode Contest,Guest Talk,2023-08-17,Lab Block 3,79,64,48,0.75,4.8,dc8a4922-5005-480f-a4c7-78a59b4e164b,28012,45040
+41b628e3-e3db-4765-949c-33f2bfc4e07e,Coding Club,DSA Workshop,Guest Talk,2024-06-05,Auditorium,167,125,76,0.61,4.8,41f83199-f4ea-4769-8366-c189cd8d9f75,16702,41049
+81be6b49-360c-4658-99ae-d0178de3b998,Coding Club,LeetCode Contest,Workshop,2023-09-29,Conference Room,182,146,109,0.75,4.6,150f5ec2-1ac3-4779-9524-d527eda5d626,44728,36516
+862835d4-04ec-47d4-9544-0152cf0d519f,Coding Club,DSA Workshop,Social,2023-04-29,Conference Room,78,55,34,0.62,4.0,16169551-3728-475b-8926-fb8ee731c166,40287,48013
+935e84ba-9d0d-4e38-ba38-9d406091237d,Coding Club,Web Dev Bootcamp,Hackathon,2024-11-17,Online,140,78,67,0.86,3.8,c47a3b7e-d209-483b-9528-4c0acb6bf562,24681,36234
+895dde86-d643-49c3-bc82-54d7f583aa78,Coding Club,DSA Workshop,Hackathon,2023-11-13,Seminar Hall A,133,103,96,0.93,3.5,5c72aebd-13b1-4e59-885c-d7147bf69552,49388,14405
+4f42a626-0fcb-4a2c-ba49-7af41dd2a23f,Coding Club,Interview Prep Night,Hackathon,2024-09-22,Lab Block 3,133,66,48,0.73,3.6,0e61065f-171b-4b80-89b7-fdf77d8d3ddd,44758,45906
+29aef726-7ffd-45ea-ae63-8bca0f8ff9e8,Coding Club,DSA Workshop,Competition,2023-11-26,Open Ground,143,98,90,0.92,4.6,bd5609c4-a446-4663-b93b-17fbf76d15fd,48178,8557

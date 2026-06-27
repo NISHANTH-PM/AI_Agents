@@ -1,0 +1,51 @@
+comm_id,club,event_id,message_type,subject,sent_date,channel,recipients,opened,clicked,open_rate,click_rate
+7a7a5aee-674c-48ab-addb-23f1bb38122d,Literary Society,f920d700-b298-4012-8aec-9e3153e12e34,announcement,New event announced for next week,2023-01-25,Discord,220,131,95,0.6,0.43
+80d3c504-8784-4578-b0f1-3dc8d7ea6448,Literary Society,f920d700-b298-4012-8aec-9e3153e12e34,reminder,Last call – seats filling fast,2023-01-19,Email,73,26,2,0.36,0.03
+ebcfbf9c-e4cf-4d57-aa64-4c2d9a365fac,Literary Society,f920d700-b298-4012-8aec-9e3153e12e34,newsletter,This week in Literary Society,2023-01-25,Notice Board,257,110,71,0.43,0.28
+3e105219-ef14-4187-872c-d287188c8bd5,Literary Society,f920d700-b298-4012-8aec-9e3153e12e34,feedback_request,Your feedback shapes our next event,2023-01-29,Instagram,193,141,31,0.73,0.16
+b071e47c-4eed-4d93-b9e4-8f7c2f0c9ffc,Literary Society,f238a824-5f1c-4c1d-bdf0-6802368a0816,announcement,Important update for all members,2024-03-09,Notice Board,272,265,26,0.97,0.1
+4d745060-2bcf-4dc7-91c4-3f3a694a3c91,Literary Society,f238a824-5f1c-4c1d-bdf0-6802368a0816,reminder,Deadline in 24 hours,2024-03-07,WhatsApp,140,55,36,0.39,0.26
+d097f7d4-65d8-4366-8cce-0f54c39f0cd0,Literary Society,f238a824-5f1c-4c1d-bdf0-6802368a0816,newsletter,Highlights and upcoming events,2024-03-09,Email,107,45,22,0.42,0.21
+e4eb988a-5cfc-4934-9750-d3bda5d3180f,Literary Society,f238a824-5f1c-4c1d-bdf0-6802368a0816,feedback_request,Your feedback shapes our next event,2024-03-07,Notice Board,196,115,103,0.59,0.53
+a0cc0c6d-b5f8-4645-b032-1630dbbd8c51,Literary Society,395fe8ac-4e97-4b3b-a030-950d94c23bf5,announcement,Important update for all members,2024-10-30,Email,207,204,6,0.99,0.03
+51336a41-12e0-43c5-8ef8-4d735c999e39,Literary Society,395fe8ac-4e97-4b3b-a030-950d94c23bf5,reminder,Final reminder for registration,2024-10-24,Email,119,74,43,0.62,0.36
+749874bd-6010-466a-bbe0-703855e9e80b,Literary Society,395fe8ac-4e97-4b3b-a030-950d94c23bf5,newsletter,Member spotlight this month,2024-10-24,Email,272,117,72,0.43,0.26
+688fea05-21e1-48b5-8f0b-e4ed40acabcb,Literary Society,395fe8ac-4e97-4b3b-a030-950d94c23bf5,feedback_request,How did we do? Share your feedback,2024-10-24,Notice Board,239,233,7,0.97,0.03
+5b97b891-90a5-4240-95f1-0922494de252,Literary Society,fa12affd-ae9b-4121-a98e-00fe0168e644,announcement,Important update for all members,2024-03-05,WhatsApp,146,96,58,0.66,0.4
+ee6d8cc7-6d4b-4e84-9bf9-1b25a3dee67d,Literary Society,fa12affd-ae9b-4121-a98e-00fe0168e644,reminder,Event happening tomorrow!,2024-03-07,Email,129,79,72,0.61,0.56
+a6aad1ff-34dc-403f-bca2-1700aad8e9f5,Literary Society,fa12affd-ae9b-4121-a98e-00fe0168e644,newsletter,Highlights and upcoming events,2024-03-05,Discord,90,33,5,0.37,0.06
+06fba7bb-12af-4aee-9481-830c29b9d978,Literary Society,fa12affd-ae9b-4121-a98e-00fe0168e644,feedback_request,Your feedback shapes our next event,2024-03-09,Instagram,174,129,113,0.74,0.65
+d0042f9b-e5eb-49b0-b877-f6fe08d7d9b6,Literary Society,2a70b025-f99b-45b8-ab82-c6542070bf6e,announcement,Important update for all members,2024-09-07,Discord,243,203,29,0.84,0.12
+4fb9bc56-293c-4e65-842d-334b97eefc26,Literary Society,2a70b025-f99b-45b8-ab82-c6542070bf6e,reminder,Last call – seats filling fast,2024-09-03,Notice Board,122,122,86,1.0,0.7
+7e7d82f9-3045-4a3f-9cef-2c7a4c1d0f92,Literary Society,2a70b025-f99b-45b8-ab82-c6542070bf6e,newsletter,This week in Literary Society,2024-09-09,Email,61,32,25,0.52,0.41
+f22401fe-5354-4b78-920f-4333f99df30f,Literary Society,2a70b025-f99b-45b8-ab82-c6542070bf6e,feedback_request,Quick 2-min survey for last event,2024-09-07,Instagram,127,65,17,0.51,0.13
+ac6b4c5b-1f80-435c-8059-2931d17b311e,Literary Society,63087e30-4470-401e-b681-51d2dba64ab1,announcement,Reminder: Registration closes soon,2023-10-27,WhatsApp,80,24,15,0.3,0.19
+6a7d8900-9e15-4d40-ac70-494a4ce4e6e6,Literary Society,63087e30-4470-401e-b681-51d2dba64ab1,reminder,Deadline in 24 hours,2023-10-25,Notice Board,147,112,90,0.76,0.61
+7a7bedb6-9f6f-487a-bd4d-6d1756ee6587,Literary Society,63087e30-4470-401e-b681-51d2dba64ab1,newsletter,Highlights and upcoming events,2023-10-31,Email,263,249,206,0.95,0.78
+e0c69cf6-b268-4b37-84f0-362c3499084d,Literary Society,63087e30-4470-401e-b681-51d2dba64ab1,feedback_request,Your feedback shapes our next event,2023-10-29,Email,270,270,21,1.0,0.08
+801c88b1-3ae2-4219-b3c8-af816d56964d,Literary Society,b1dae3cc-11f6-4409-aa18-c2cbd62bcf31,announcement,Reminder: Registration closes soon,2023-03-24,Notice Board,285,104,40,0.36,0.14
+e0823505-c4ba-438d-958a-0c47e8a69401,Literary Society,b1dae3cc-11f6-4409-aa18-c2cbd62bcf31,reminder,Event happening tomorrow!,2023-03-24,Discord,231,175,74,0.76,0.32
+ad30ddd3-f394-4404-8913-5e1aade2a64d,Literary Society,b1dae3cc-11f6-4409-aa18-c2cbd62bcf31,newsletter,Member spotlight this month,2023-03-16,Instagram,297,172,43,0.58,0.14
+0e6e5810-8691-428c-88c2-61f1043acc56,Literary Society,b1dae3cc-11f6-4409-aa18-c2cbd62bcf31,feedback_request,Rate your experience,2023-03-16,Discord,161,156,27,0.97,0.17
+9967422b-fb1a-4072-8414-7d03bb966115,Literary Society,a4598cc8-c087-4c87-bda2-3423039fcad7,announcement,Reminder: Registration closes soon,2024-01-02,Instagram,152,112,10,0.74,0.07
+bce80bde-878e-4b70-b478-1d77a7927607,Literary Society,a4598cc8-c087-4c87-bda2-3423039fcad7,reminder,Event happening tomorrow!,2023-12-29,Notice Board,106,73,21,0.69,0.2
+42e1f3ed-bebc-4a95-bd52-c7171d95fdd1,Literary Society,a4598cc8-c087-4c87-bda2-3423039fcad7,newsletter,Highlights and upcoming events,2023-12-23,Instagram,185,185,49,1.0,0.26
+d553c184-5079-4673-bbfa-bbc93167b041,Literary Society,a4598cc8-c087-4c87-bda2-3423039fcad7,feedback_request,Quick 2-min survey for last event,2023-12-27,WhatsApp,110,46,9,0.42,0.08
+2c78f489-c2b9-48f8-b907-74459333d94a,Literary Society,f0bf717b-c86d-4fdd-be22-d377f9889f69,announcement,Monthly newsletter out now!,2024-04-15,WhatsApp,204,100,97,0.49,0.48
+9d1d1717-8639-4dd1-83de-6d1ff924918a,Literary Society,f0bf717b-c86d-4fdd-be22-d377f9889f69,reminder,Last call – seats filling fast,2024-04-19,Notice Board,168,146,144,0.87,0.86
+2ff3940a-76ec-41de-9b3c-c880e888bc0f,Literary Society,f0bf717b-c86d-4fdd-be22-d377f9889f69,newsletter,Monthly recap – Literary Society,2024-04-21,Discord,132,119,40,0.9,0.3
+d2a78e55-7758-4c79-9b15-7c4fe6c7ae7f,Literary Society,f0bf717b-c86d-4fdd-be22-d377f9889f69,feedback_request,Quick 2-min survey for last event,2024-04-11,Instagram,170,107,80,0.63,0.47
+cc6eab50-dd9b-44f7-b6a1-5f415ef13660,Literary Society,c1d08be7-ac85-4d44-85ec-eb193f3634e3,announcement,Monthly newsletter out now!,2023-11-23,Instagram,64,41,32,0.64,0.5
+825dd6eb-5fb6-46bd-990a-93886aed9b81,Literary Society,c1d08be7-ac85-4d44-85ec-eb193f3634e3,reminder,Final reminder for registration,2023-11-21,Instagram,165,53,3,0.32,0.02
+d1daef0b-881e-4d2e-9b00-8703350fb6bd,Literary Society,c1d08be7-ac85-4d44-85ec-eb193f3634e3,newsletter,Member spotlight this month,2023-11-13,Discord,215,87,78,0.4,0.36
+1c9ba2e8-8e5f-40d4-86a8-fedd546bbde4,Literary Society,c1d08be7-ac85-4d44-85ec-eb193f3634e3,feedback_request,Rate your experience,2023-11-23,Instagram,191,67,57,0.35,0.3
+64379ac6-6ca0-4d66-a27c-208dc822eafb,Literary Society,ec14d1d5-664e-4ebf-9c8c-7843b20e08eb,announcement,Monthly newsletter out now!,2024-10-23,Discord,171,115,19,0.67,0.11
+cd70eb3d-2dd5-4ee2-bd3c-f9d13a17f2b2,Literary Society,ec14d1d5-664e-4ebf-9c8c-7843b20e08eb,reminder,Deadline in 24 hours,2024-10-13,Email,257,164,21,0.64,0.08
+9a3d57b2-48c9-4c3d-bf7e-74bd2a57dc6d,Literary Society,ec14d1d5-664e-4ebf-9c8c-7843b20e08eb,newsletter,Monthly recap – Literary Society,2024-10-17,Instagram,231,181,112,0.78,0.48
+c59a72d9-7e1c-48d5-8699-23e745713746,Literary Society,ec14d1d5-664e-4ebf-9c8c-7843b20e08eb,feedback_request,Your feedback shapes our next event,2024-10-19,Instagram,284,157,99,0.55,0.35
+3cab567b-0c62-4992-b6a1-c0043c79e310,Literary Society,f60886e8-0537-42e7-827b-00801c695185,announcement,Important update for all members,2024-08-23,Email,63,58,41,0.92,0.65
+6b7af36c-cbf7-4d83-8a27-55fdaeba886c,Literary Society,f60886e8-0537-42e7-827b-00801c695185,reminder,Last call – seats filling fast,2024-08-19,Instagram,74,57,43,0.77,0.58
+19f33b28-9d7d-4793-86b5-2f58427301ba,Literary Society,f60886e8-0537-42e7-827b-00801c695185,newsletter,Monthly recap – Literary Society,2024-08-19,Instagram,235,224,223,0.95,0.95
+64435912-4e3f-4453-9c74-aa23210cf09b,Literary Society,f60886e8-0537-42e7-827b-00801c695185,feedback_request,Quick 2-min survey for last event,2024-08-13,Discord,199,95,44,0.48,0.22
+0ce70d62-6b72-4a41-8344-04411e92e9e3,Literary Society,60e1720a-2da6-44a6-9e83-370576c7436c,announcement,Reminder: Registration closes soon,2024-10-01,Instagram,202,81,39,0.4,0.19
+2b70f7ad-da98-4fd3-bd36-c16e4c5b9c34,Literary Society,60e1720a-2da6-44a6-9e83-370576c7436c,reminder,Last call – seats filling fast,2024-10-01,Notice Board,221,200,23,0.9,0.1
