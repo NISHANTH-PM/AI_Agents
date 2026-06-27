@@ -31,9 +31,11 @@ DOMAIN_TOPICS = {
 }
 
 def load_cache():
+    print(f"Looking for cache at: {os.path.abspath(CACHE_FILE)}")
     if os.path.exists(CACHE_FILE):
         with open(CACHE_FILE, "r") as f:
             return json.load(f)
+    print("Cache file not found!")
     return {}
 
 def save_cache(cache):
