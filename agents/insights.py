@@ -30,8 +30,10 @@ Provide:
 
 GENERATION_MODELS = [
     "models/gemini-3.5-flash",
+    "models/gemini-3.1-flash-lite",
     "models/gemini-2.5-flash",
-    "models/gemini-2.5-flash-lite"
+    "models/gemini-2.0-flash",
+    "models/gemini-2.0-flash-lite"
 ]
 
 current_gen_model_index = 0
