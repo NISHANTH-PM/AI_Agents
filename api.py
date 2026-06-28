@@ -15,6 +15,14 @@ load_dotenv()
 
 app = FastAPI()
 
+DOMAIN_TOPICS = {
+    "members": "member performance, skills, attendance and roles",
+    "events": "event participation, satisfaction and attendance trends",
+    "communications": "communication effectiveness, open rates and engagement",
+    "finance": "budget allocation, spending patterns and financial health",
+    "projects": "project completion, team performance and impact"
+}
+
 @app.get("/mcp/tools")
 def get_tools():
     return list_tools()
@@ -23,6 +31,22 @@ def get_tools():
 def execute_tool(tool_name: str):
     return call_tool(tool_name)
 
+@app.get("/insights/{domain}")
+def get_insights(domain: str):
+    from agents.insights import generate_insights
+    from scheduler import get_cached_insight
+    
+    # Try cache first
+    insight = get_cached_insight(domain)
+    
+    # If cache is bad/empty, generate live
+    if not insight or len(insight) < 100:
+        insight = generate_insights(
+            DOMAIN_TOPICS.get(domain, domain),
+            collection_name=domain
+        )
+    
+    return {"domain": domain, "insight": insight}
 
 @app.get("/anomalies")
 def get_anomalies():
